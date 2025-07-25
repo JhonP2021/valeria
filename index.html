@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeria 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNhh/TCPMZ5JlNA6j6cVTpCJRIiTIwNDSbv/yocnMjcdP4TQNPN5rM9F+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Fallback si jsPDF no se carga
+        window.addEventListener('load', function() {
+            if (typeof window.jsPDF === 'undefined') {
+                console.warn('jsPDF no se cargó desde CDN, intentando cargar versión alternativa...');
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js';
+                script.onload = function() {
+                    console.log('jsPDF cargado desde unpkg');
+                };
+                script.onerror = function() {
+                    console.error('Error al cargar jsPDF desde unpkg también');
+                };
+                document.head.appendChild(script);
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Página de la Caja Fuerte -->
+    <div id="safePage" class="page active">
+        <div class="container">
+            <h1 class="title">🔒 Caja Fuerte Secreta 🔒</h1>
+            <div class="safe-container">
+                <div class="safe">
+                    <div class="safe-door">
+                        <div class="safe-handle"></div>
+                        <div class="safe-lock">
+                            <div class="combination-display">
+                                <span id="digit1">0</span>
+                                <span id="digit2">0</span>
+                                <span id="digit3">0</span>
+                                <span id="digit4">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <h3>Introduce la combinación secreta:</h3>
+                    <input type="password" id="passwordInput" maxlength="4" placeholder="****">
+                    <button id="unlockBtn" onclick="checkPassword()">🔓 Abrir Caja Fuerte</button>
+                    <div id="errorMessage" class="error-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de la Carta -->
+    <div id="letterPage" class="page">
+        <div class="container">
+            <div class="letter-buttons">
+                <button id="backBtn" onclick="goBack()">← Volver a la Caja Fuerte</button>
+                <button id="downloadBtn" onclick="downloadAsPDF()">📄 Descargar Carta PDF</button>
+            </div>
+            <div class="letter-container">
+                <div class="letter">
+                    <div class="letter-header">
+                        <h2>💌 Carta Para Valeria 💌</h2>
+                    </div>
+                    <div class="letter-content">
+                        <p>Mi amor, mi vida, Valeria:</p>
+
+<p>Han pasado siete años desde que fuimos novios, y aunque el tiempo nos llevó por caminos distintos, quiero que sepas algo muy claro, mi amor por ti nunca se fue. Siempre estuviste presente en mi corazón, en mis pensamientos, en lo que soy.</p>
+
+<p>Hoy que la vida nos ha dado una nueva oportunidad, quiero decirte con el alma en la mano que estoy dispuesto a hacer todo lo necesario para que esto funcione, para construir algo real, sólido y lindo contigo. No se trata solo de volver, se trata de hacerlo mejor, con madurez, con sinceridad y con la decisión de cuidarnos.</p>
+
+<p>Tú eres y has sido siempre alguien muy especial para mí. Mi vida, no quiero perder esta nueva oportunidad. Quiero que sepas que estoy aquí, dispuesto a caminar contigo, paso a paso, con paciencia, con ternura, con compromiso y con todas las ganas de que esto sea lo que alguna vez soñamos... y más.</p>
+
+<p>Gracias por darnos una nueva oportunidad de intentarlo. Gracias por estar. Estoy aquí, contigo, por ti y para ti.</p>
+
+<p>Con todo lo que soy,</p>
+
+                        <p class="signature">JP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
